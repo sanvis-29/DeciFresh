@@ -1,55 +1,100 @@
-from crewai import Task
+from crewai import Task  # type: ignore[import]
 from ai_engine.agents import (
+    vision_agent,
     market_agent,
     logistics_agent,
-    vision_agent,
     decision_agent,
     counterfactual_agent,
     explainability_agent,
 )
 
-from ai_engine.prompts import (
-    MARKET_PROMPT,
-    LOGISTICS_PROMPT,
-    VISION_PROMPT,
-    DECISION_PROMPT,
-    COUNTERFACTUAL_PROMPT,
-    EXPLAINABILITY_PROMPT,
-)
 
+def create_tasks(batch_data: dict):
+    """
+    Creates all CrewAI tasks for one produce batch.
+    """
 
-vision_task = Task(
-    description=VISION_PROMPT,
-    expected_output="Quality assessment",
-    agent=vision_agent,
-)
+    vision_task = Task(
+        description=f"""
+        Analyze the following produce batch.
 
-market_task = Task(
-    description=MARKET_PROMPT,
-    expected_output="Market prediction",
-    agent=market_agent,
-)
+        Batch Data:
+        {batch_data}
 
-logistics_task = Task(
-    description=LOGISTICS_PROMPT,
-    expected_output="Route recommendation",
-    agent=logistics_agent,
-)
+        Estimate:
+        - Freshness
+        - Visible defects
+        - Shelf life
+        """,
+        expected_output="Quality assessment of the produce batch.",
+        agent=vision_agent,
+    )
 
-decision_task = Task(
-    description=DECISION_PROMPT,
-    expected_output="Final decision",
-    agent=decision_agent,
-)
+    market_task = Task(
+        description=f"""
+        Using the batch details below:
 
-counterfactual_task = Task(
-    description=COUNTERFACTUAL_PROMPT,
-    expected_output="Loss estimate",
-    agent=counterfactual_agent,
-)
+        {batch_data}
 
-explainability_task = Task(
-    description=EXPLAINABILITY_PROMPT,
-    expected_output="Human-readable explanation",
-    agent=explainability_agent,
-)
+        Predict:
+        - Best market
+        - Selling price
+        - Demand
+        """,
+        expected_output="Market recommendation.",
+        agent=market_agent,
+    )
+
+    logistics_task = Task(
+        description=f"""
+        Given this produce batch:
+
+        {batch_data}
+
+        Recommend:
+        - Best transport route
+        - Delivery urgency
+        - Logistics strategy
+        """,
+        expected_output="Logistics recommendation.",
+        agent=logistics_agent,
+    )
+
+    decision_task = Task(
+        description="""
+        Combine all previous analyses.
+
+        Recommend ONE action:
+        - Sell
+        - Store
+        - Process
+        - Donate
+        """,
+        expected_output="Final business decision.",
+        agent=decision_agent,
+    )
+
+    counterfactual_task = Task(
+        description="""
+        Estimate what happens if no action is taken.
+        """,
+        expected_output="Estimated losses and waste.",
+        agent=counterfactual_agent,
+    )
+
+    explainability_task = Task(
+        description="""
+        Explain the final recommendation in plain English.
+        """,
+        expected_output="Human-friendly explanation.",
+        agent=explainability_agent,
+    )
+
+    return [
+        vision_task,
+        market_task,
+        logistics_task,
+        decision_task,
+        counterfactual_task,
+        explainability_task,
+    ]

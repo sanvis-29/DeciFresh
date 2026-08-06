@@ -1,35 +1,33 @@
-from pydantic import BaseModel
-from typing import List
+class DecisionEngine:
+    def __init__(self):
+        self.weights = {
+            "freshness": 0.30,
+            "market_price": 0.25,
+            "demand": 0.20,
+            "logistics": 0.15,
+            "waste_risk": 0.10,
+        }
 
+    def score_batch(self, batch):
+        score = (
+            batch["freshness"] * self.weights["freshness"]
+            + batch["market_price"] * self.weights["market_price"]
+            + batch["demand"] * self.weights["demand"]
+            + batch["logistics"] * self.weights["logistics"]
+            + batch["waste_risk"] * self.weights["waste_risk"]
+        )
 
-class AlternativeDecision(BaseModel):
-    action: str
-    destination: str
-    expected_revenue: float
-    expected_waste_percent: float
-    confidence: float
-    score: float
+        return round(score, 2)
 
+    def choose_action(self, score):
+        if score >= 80:
+            return "Sell to Premium Retail"
 
-class Counterfactual(BaseModel):
-    revenue_without_action: float
-    revenue_with_action: float
-    waste_without_action: float
-    waste_with_action: float
-    meals_saved: int
-    co2_saved_kg: float
+        elif score >= 60:
+            return "Sell to Standard Retail"
 
+        elif score >= 40:
+            return "Redirect to Food Processing"
 
-class Decision(BaseModel):
-    recommended_action: str
-    destination: str
-
-    confidence: float
-
-    value_preservation_score: float
-
-    reasoning: List[str]
-
-    alternatives: List[AlternativeDecision]
-
-    counterfactual: Counterfactual
+        else:
+            return "Donate / Relief Network"
