@@ -35,6 +35,9 @@ IMPORTANT:
 - Ignore sustainability.
 - Do NOT recommend a final business action.
 - Return ONLY valid JSON.
+- Confidence MUST be an integer from 0 to 100.
+- Base confidence on how clearly the Freshness Score fits the quality assessment.
+- Do NOT return 0 confidence unless the input is missing, invalid, or contradictory.
 """,
         expected_output="""
 {
