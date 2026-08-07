@@ -1,0 +1,62 @@
+[
+  {
+    "batch_id": "H-001",
+    "produce_type": "Mango",
+    "freshness": 88,
+    "market_price": 78,
+    "demand": 82,
+    "logistics": 86,
+    "waste_risk": 18,
+    "decision": "Premium Retail",
+    "outcome": "Successful sale",
+    "waste_percent": 3
+  },
+  {
+    "batch_id": "H-002",
+    "produce_type": "Mango",
+    "freshness": 70,
+    "market_price": 65,
+    "demand": 68,
+    "logistics": 72,
+    "waste_risk": 35,
+    "decision": "Standard Retail",
+    "outcome": "Most produce sold",
+    "waste_percent": 8
+  },
+  {
+    "batch_id": "H-003",
+    "produce_type": "Banana",
+    "freshness": 42,
+    "market_price": 40,
+    "demand": 45,
+    "logistics": 55,
+    "waste_risk": 72,
+    "decision": "Food Processing",
+    "outcome": "Converted to processed products",
+    "waste_percent": 10
+  },
+  {
+    "batch_id": "H-004",
+    "produce_type": "Spinach",
+    "freshness": 25,
+    "market_price": 20,
+    "demand": 28,
+    "logistics": 35,
+    "waste_risk": 88,
+    "decision": "Food Donation",
+    "outcome": "Distributed through relief network",
+    "waste_percent": 5
+  },
+  {
+    "batch_id": "H-005",
+    "produce_type": "Tomato",
+    "freshness": 63,
+    "market_price": 58,
+    "demand": 66,
+    "logistics": 70,
+    "waste_risk": 48,
+    "decision": "Standard Retail",
+    "outcome": "Sold through regular retail",
+    "waste_percent": 9
+  }
+]

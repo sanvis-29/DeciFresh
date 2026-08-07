@@ -3,33 +3,26 @@ from pprint import pprint
 from ai_engine.orchestrator import run_decifresh
 
 
-# ============================================================
-# SUPER STRESS-TEST BATCH
-# ============================================================
+# =========================================================
+# DECIFRESH HISTORICAL RAG + COUNTERFACTUAL INTEGRATION TEST
+# =========================================================
 
 batch = {
-    "batch_id": "SP-999",
-    "produce_type": "Spinach",
-    "quantity_kg": 500,
+    "batch_id": "RAG-TEST-001",
+    "produce_type": "Mango",
+    "quantity_kg": 1000,
 
-    # Very poor condition
-    "freshness": 20,
-
-    # Weak commercial opportunity
-    "market_price": 25,
-    "demand": 25,
-
-    # Difficult logistics
-    "logistics": 30,
-
-    # Extremely high waste risk
-    "waste_risk": 90,
+    "freshness": 86,
+    "market_price": 76,
+    "demand": 80,
+    "logistics": 84,
+    "waste_risk": 20,
 }
 
 
-print("\n==========================================")
-print("       DECIFRESH SUPER STRESS TEST")
-print("==========================================")
+print("\n" + "=" * 60)
+print("        DECIFRESH FULL INTELLIGENCE TEST")
+print("=" * 60)
 
 print(f"Batch: {batch['batch_id']}")
 print(f"Produce: {batch['produce_type']}")
@@ -39,24 +32,15 @@ print(f"Demand: {batch['demand']}")
 print(f"Logistics: {batch['logistics']}")
 print(f"Waste Risk: {batch['waste_risk']}")
 
-print("==========================================\n")
-
-
-# ============================================================
-# RUN DECIFRESH
-# ============================================================
+print("=" * 60)
 
 result = run_decifresh(batch)
 
-
-# ============================================================
-# FINAL RESULT
-# ============================================================
-
-print("\n==========================================")
-print("           FINAL TEST RESULT")
-print("==========================================\n")
+print("\n")
+print("=" * 60)
+print("              FINAL DECIFRESH RESULT")
+print("=" * 60)
 
 pprint(result)
 
-print("\n==========================================")
+print("=" * 60)
