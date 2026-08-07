@@ -26,13 +26,14 @@ decifresh_crew = Crew(
         decision_orchestrator,
     ],
 
-    tasks=[
-        vision_task,
-        market_task,
-        logistics_task,
-        institution_task,
-        decision_task,
-    ],
+   tasks=[
+    quality_task,
+    market_task,
+    logistics_task,
+    sustainability_task,
+    chief_task,
+    validator_task,
+],
 
     process=Process.sequential,
 
