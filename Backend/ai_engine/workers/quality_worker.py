@@ -1,5 +1,5 @@
 from crewai import Agent
-from ai_engine.config import llm
+from Backend.ai_engine.config import llm
 
 quality_worker = Agent(
     role="Produce Quality Expert",

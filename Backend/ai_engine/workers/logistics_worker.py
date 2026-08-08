@@ -1,5 +1,5 @@
 from crewai import Agent
-from ai_engine.config import llm
+from Backend.ai_engine.config import llm
 
 logistics_worker = Agent(
     role="Supply Chain & Logistics Expert",
