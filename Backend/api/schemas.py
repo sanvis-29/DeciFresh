@@ -1,58 +1,58 @@
 from pydantic import BaseModel, Field
-from typing import List, Optional
+from typing import List, Dict, Optional
+from datetime import datetime
 
-
-# ---------- Incoming Request ----------
-
-class BatchRequest(BaseModel):
+class BatchCreateRequest(BaseModel):
     batch_id: str = Field(..., example="MX-201")
-    produce_type: str = Field(..., example="Mango")
-    quantity_kg: float = Field(..., example=1000)
-    location: str = Field(..., example="Delhi")
+    crop_type: str = Field(..., example="Mangoes")
+    weight_kg: float = Field(..., example=1000.0)
+    origin: str = Field(..., example="Farm A, Azadpur")
+    harvest_date: str = Field(..., example="2026-08-05")
+    current_location: str = Field(..., example="Delhi Warehouse")
 
-    # Optional if Computer Vision hasn't run yet
-    quality_grade: Optional[str] = None
-    estimated_shelf_life_days: Optional[int] = None
+class AgentInsight(BaseModel):
+    agent_name: str
+    finding: str
 
-
-# ---------- AI Recommendation ----------
-
-class Recommendation(BaseModel):
-    recommended_action: str
+class DecisionScenario(BaseModel):
+    scenario_id: str
     destination: str
-    confidence: float
-    value_preservation_score: float
+    allocation_kg: float
+    expected_revenue_inr: float
+    waste_percentage: float
+    preservation_score: float
 
-
-# ---------- Alternative Futures ----------
-
-class AlternativeDecision(BaseModel):
-    action: str
-    expected_revenue: float
-    expected_waste_percent: float
-    score: float
-
-
-# ---------- Counterfactual ----------
-
-class Counterfactual(BaseModel):
-    revenue_without_action: float
-    revenue_with_action: float
-
-    waste_without_action: float
-    waste_with_action: float
-
-    meals_saved: int
-    co2_saved_kg: float
-
-
-# ---------- Final Response ----------
+class CounterfactualAnalysis(BaseModel):
+    do_nothing_revenue_inr: float
+    do_nothing_waste_pct: float
+    optimal_revenue_inr: float
+    optimal_waste_pct: float
+    revenue_protected_inr: float
+    waste_prevented_kg: float
+    meals_enabled: int
+    co2_avoided_kg: float
 
 class DecisionResponse(BaseModel):
-    recommendation: Recommendation
+    batch_id: str
+    crop_type: str
+    weight_kg: float
+    value_preservation_score: float
+    confidence_score: float
+    recommended_action: str
+    explanation: List[str]
+    scenarios_evaluated: List[DecisionScenario]
+    counterfactual: CounterfactualAnalysis
+    agent_insights: List[AgentInsight]
+    timestamp: datetime = Field(default_factory=datetime.utcnow)
 
-    reasoning: List[str]
-
-    alternatives: List[AlternativeDecision]
-
-    counterfactual: Counterfactual
+class ProducePassport(BaseModel):
+    passport_id: str
+    batch_id: str
+    crop_type: str
+    weight_kg: float
+    origin: str
+    harvest_date: str
+    current_value_preservation_score: float
+    quality_grade: str
+    route_history: List[str]
+    qr_code_url: str
