@@ -17,22 +17,27 @@ def build_ai_batch(batch_data: dict) -> dict:
     # Freshness score
     # -----------------------------
 
-    harvest_date = datetime.strptime(
-        batch_data["harvest_date"],
-        "%Y-%m-%d"
-    ).date()
+    vision_freshness = batch_data.get("vision_freshness")
 
-    today = datetime.now().date()
+    if vision_freshness is not None:
+        freshness = max(0, min(100, float(vision_freshness)))
+    else:
+        harvest_date = datetime.strptime(
+            batch_data["harvest_date"],
+            "%Y-%m-%d"
+        ).date()
 
-    days_since_harvest = (today - harvest_date).days
+        today = datetime.now().date()
 
-    freshness = max(
-        0,
-        min(
-            100,
-            100 - (days_since_harvest * 8)
+        days_since_harvest = (today - harvest_date).days
+
+        freshness = max(
+            0,
+            min(
+                100,
+                100 - (days_since_harvest * 8)
+            )
         )
-    )
 
     # -----------------------------
     # MVP default scores

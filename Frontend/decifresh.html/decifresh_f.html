@@ -674,11 +674,11 @@ svg.orch-svg{width:100%;height:100%;display:block}
           <div>
             <span class="section-tag">AI Vision</span>
             <h4 style="font-size:22px; margin-top:8px;">
-              Scan your produce
+              Scan Produce Sample
             </h4>
-            <p style="color:var(--muted); margin-top:6px;">
-              Upload a produce image and let DeciFresh estimate its
-              visible freshness and quality.
+            <p style="color:var(--muted); margin-top:6px; line-height:1.6;">
+              Upload a sample image from the batch. DeciFresh estimates visible
+              freshness, quality grade and surface issues from the image.
             </p>
           </div>
         </div>
@@ -700,8 +700,10 @@ svg.orch-svg{width:100%;height:100%;display:block}
 
           <div id="visionUploadContent">
             <div class="dz-icon">📷</div>
-            <h4>Upload Produce Image</h4>
-            <p>Choose an image or take a photo on your phone</p>
+            <h4>Upload Sample Image</h4>
+            <p>
+              Choose a produce image or take a photo on your phone.
+            </p>
           </div>
 
         </div>
@@ -709,7 +711,7 @@ svg.orch-svg{width:100%;height:100%;display:block}
         <!-- Loading -->
         <div id="visionLoading" style="display:none; margin-top:20px;">
           <div class="thinking-panel">
-            <h4>DeciFresh Vision is inspecting the produce...</h4>
+            <h4>DeciFresh Vision is inspecting the sample...</h4>
             <p style="color:var(--muted-inv);">
               Detecting produce type, visible freshness and quality signals.
             </p>
@@ -719,11 +721,28 @@ svg.orch-svg{width:100%;height:100%;display:block}
         <!-- Vision result -->
         <div id="visionResult" style="display:none; margin-top:22px;">
 
+          <div style="
+            font-family:'IBM Plex Mono',monospace;
+            font-size:11px;
+            color:var(--muted);
+            text-transform:uppercase;
+            letter-spacing:.05em;
+            margin-bottom:12px;
+          ">
+            Sample Analysis
+          </div>
+
           <div class="vision-result-layout">
 
             <div class="vision-result-image">
-              <img id="visionResultImage" alt="Analyzed produce">
-              <span>ANALYZED IMAGE</span>
+
+              <img
+                id="visionResultImage"
+                alt="Analyzed produce sample"
+              >
+
+              <span>ANALYZED SAMPLE</span>
+
             </div>
 
             <div class="vision-result-data">
@@ -743,11 +762,6 @@ svg.orch-svg{width:100%;height:100%;display:block}
                 <b id="visionGrade">—</b>
               </div>
 
-              <div class="review-row">
-                <span>Vision Confidence</span>
-                <b id="visionConfidence">—</b>
-              </div>
-
             </div>
 
           </div>
@@ -763,10 +777,23 @@ svg.orch-svg{width:100%;height:100%;display:block}
             ></div>
           </div>
 
-          <p
-            id="visionSummary"
-            style="margin-top:18px; line-height:1.6; color:var(--muted);"
-          ></p>
+          <div style="margin-top:20px;">
+            <span style="
+              font-size:12px;
+              color:var(--muted);
+            ">
+              AI VISUAL ASSESSMENT
+            </span>
+
+            <p
+              id="visionSummary"
+              style="
+                margin-top:8px;
+                line-height:1.6;
+                color:var(--muted);
+              "
+            ></p>
+          </div>
 
           <div style="margin-top:22px;">
             <button class="btn btn-primary" onclick="scrollToDecisionForm()">
@@ -1433,15 +1460,6 @@ svg.orch-svg{width:100%;height:100%;display:block}
 
       document.getElementById("visionGrade").textContent =
         data.quality_grade || "—";
-
-      let confidence = Number(data.confidence ?? 0);
-
-      if (confidence <= 1) {
-        confidence *= 100;
-      }
-
-      document.getElementById("visionConfidence").textContent =
-        `${Math.round(confidence)}%`;
 
       document.getElementById("visionSummary").textContent =
         data.visual_summary || "";

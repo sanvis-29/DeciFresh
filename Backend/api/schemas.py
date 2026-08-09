@@ -9,6 +9,7 @@ class BatchCreateRequest(BaseModel):
     origin: str = Field(..., example="Farm A, Azadpur")
     harvest_date: str = Field(..., example="2026-08-05")
     current_location: str = Field(..., example="Delhi Warehouse")
+    vision_freshness: Optional[float] = None
 
 class AgentInsight(BaseModel):
     agent_name: str
