@@ -1,4 +1,9 @@
-from fastapi import APIRouter, HTTPException
+from fastapi import (
+    APIRouter,
+    HTTPException,
+    UploadFile,
+    File,
+)
 
 from Backend.api.schemas import (
     BatchCreateRequest,
@@ -7,6 +12,9 @@ from Backend.api.schemas import (
 )
 
 from Backend.services.decision_service import process_decision
+from Backend.services.vision_service import (
+    analyze_produce_image,
+)
 
 
 router = APIRouter(
@@ -35,6 +43,52 @@ def create_decision(batch: BatchCreateRequest):
         result = process_decision(batch_data)
 
         return result
+
+    except Exception as e:
+        raise HTTPException(
+            status_code=500,
+            detail=str(e),
+        )
+
+
+@router.post("/vision/analyze")
+async def analyze_vision(
+    image: UploadFile = File(...)
+):
+    """
+    Analyze visible produce quality using computer vision.
+    """
+
+    try:
+        if not image.content_type:
+            raise HTTPException(
+                status_code=400,
+                detail="Image content type is missing.",
+            )
+
+        if not image.content_type.startswith("image/"):
+            raise HTTPException(
+                status_code=400,
+                detail="Please upload an image file.",
+            )
+
+        image_bytes = await image.read()
+
+        if not image_bytes:
+            raise HTTPException(
+                status_code=400,
+                detail="Uploaded image is empty.",
+            )
+
+        result = analyze_produce_image(
+            image_bytes=image_bytes,
+            mime_type=image.content_type,
+        )
+
+        return result
+
+    except HTTPException:
+        raise
 
     except Exception as e:
         raise HTTPException(

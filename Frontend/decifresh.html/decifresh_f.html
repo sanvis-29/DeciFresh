@@ -288,6 +288,47 @@ svg.orch-svg{width:100%;height:100%;display:block}
 .dropzone p{color:var(--muted);font-size:13.5px}
 .dropzone.has-image{padding:0;border-style:solid;overflow:hidden}
 .dropzone.has-image img{width:100%;height:260px;object-fit:cover}
+.vision-result-layout{
+  display:grid;
+  grid-template-columns:220px 1fr;
+  gap:28px;
+  align-items:start;
+  margin-bottom:22px;
+}
+
+.vision-result-image{
+  position:relative;
+}
+
+.vision-result-image img{
+  width:100%;
+  height:210px;
+  object-fit:cover;
+  border:2.5px solid var(--ink);
+  border-radius:18px;
+  box-shadow:4px 4px 0 var(--ink);
+}
+
+.vision-result-image span{
+  display:inline-block;
+  margin-top:10px;
+  font-family:'IBM Plex Mono', monospace;
+  font-size:10px;
+  font-weight:600;
+  letter-spacing:.05em;
+  color:var(--muted);
+}
+
+@media(max-width:700px){
+  .vision-result-layout{
+    grid-template-columns:1fr;
+  }
+
+  .vision-result-image img{
+    height:240px;
+  }
+}
+
 .field-group{display:flex;flex-direction:column;gap:18px;margin-top:24px}
 .field{display:flex;flex-direction:column;gap:7px}
 .field label{font-size:12.5px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
@@ -363,5 +404,1231 @@ svg.orch-svg{width:100%;height:100%;display:block}
 </style>
 </head>
 <body>
-  </body>
+
+<nav class="topnav">
+  <div class="topnav-inner">
+
+    <div class="wordmark">
+      <span class="dot"></span>
+      DeciFresh
+    </div>
+
+    <div class="navlinks">
+      <button onclick="scrollToSection('home')">Home</button>
+      <button onclick="scrollToSection('howItWorks')">How It Works</button>
+      <button onclick="scrollToSection('batchIntake')">Analyze</button>
+    </div>
+
+    <button
+      class="nav-cta"
+      onclick="scrollToSection('batchIntake')"
+    >
+      Analyze Batch →
+    </button>
+
+  </div>
+</nav>
+
+<main>
+
+<section id="home" class="shell">
+
+  <div class="hero">
+
+    <div>
+
+      <span class="eyebrow">
+        AI Decision Intelligence for Fresh Produce
+      </span>
+
+      <h1>
+        Don't predict spoilage.
+        Decide what happens
+        <em>next.</em>
+      </h1>
+
+      <p class="lede">
+        DeciFresh evaluates multiple possible futures for every produce
+        batch and recommends the highest-value viable action before
+        freshness, revenue or food is lost.
+      </p>
+
+      <div class="hero-actions">
+
+        <button
+          class="btn btn-primary"
+          onclick="scrollToSection('batchIntake')"
+        >
+          Analyze a Batch →
+        </button>
+
+        <button
+          class="btn btn-ghost"
+          onclick="scrollToSection('howItWorks')"
+        >
+          See How It Works
+        </button>
+
+      </div>
+
+      <div class="hero-stats">
+
+        <div class="hero-stat">
+          <b>8</b>
+          <span>Possible Futures</span>
+        </div>
+
+        <div class="hero-stat">
+          <b>6</b>
+          <span>AI Decision Roles</span>
+        </div>
+
+        <div class="hero-stat">
+          <b>1</b>
+          <span>Validated Action</span>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="orch-wrap">
+
+      <div class="orch-label">
+        DECIFRESH <span>LIVE INTELLIGENCE</span>
+      </div>
+
+      <svg
+        class="orch-svg"
+        viewBox="0 0 500 500"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+
+        <!-- connections -->
+        <g
+          fill="none"
+          stroke="rgba(255,255,255,.24)"
+          stroke-width="2"
+          class="orch-flow"
+        >
+          <path d="M250 250 L120 130"/>
+          <path d="M250 250 L380 130"/>
+          <path d="M250 250 L120 365"/>
+          <path d="M250 250 L380 365"/>
+        </g>
+
+        <!-- centre -->
+        <circle
+          cx="250"
+          cy="250"
+          r="60"
+          fill="#FF7A1A"
+          class="orch-core"
+        />
+
+        <text
+          x="250"
+          y="245"
+          text-anchor="middle"
+          fill="#14261C"
+          font-size="16"
+          font-weight="700"
+        >
+          DECIFRESH
+        </text>
+
+        <text
+          x="250"
+          y="267"
+          text-anchor="middle"
+          fill="#14261C"
+          font-size="10"
+        >
+          DECISION CORE
+        </text>
+
+        <!-- specialist nodes -->
+        <circle cx="120" cy="130" r="40" fill="#C8F5CE"/>
+        <circle cx="380" cy="130" r="40" fill="#FFC93C"/>
+        <circle cx="120" cy="365" r="40" fill="#FFD9E8"/>
+        <circle cx="380" cy="365" r="40" fill="#FFF6E3"/>
+
+        <text x="120" y="134" text-anchor="middle" font-size="11">
+          QUALITY
+        </text>
+
+        <text x="380" y="134" text-anchor="middle" font-size="11">
+          MARKET
+        </text>
+
+        <text x="120" y="369" text-anchor="middle" font-size="11">
+          LOGISTICS
+        </text>
+
+        <text x="380" y="369" text-anchor="middle" font-size="10">
+          WASTE
+        </text>
+
+      </svg>
+
+      <div class="orch-future-tag">
+
+        <div class="r1">
+          <b>Standard Retail</b>
+          <span>BEST FUTURE</span>
+        </div>
+
+        <p>
+          Future Value 71.7 · +21.45 vs baseline
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section id="howItWorks" class="band band-pink">
+
+  <div class="shell section">
+
+    <div class="section-head">
+      <span class="section-tag">How It Works</span>
+
+      <h2>
+        One batch. Eight futures.
+        One validated decision.
+      </h2>
+
+      <p>
+        DeciFresh combines deterministic scoring,
+        specialist AI, historical memory and
+        counterfactual simulation.
+      </p>
+    </div>
+
+    <div class="agent-grid">
+
+      <div class="agent-card" style="background:#C8F5CE;">
+        <div class="agent-icon">🥭</div>
+        <h4>Quality</h4>
+        <p class="q">“Is this produce commercially viable?”</p>
+      </div>
+
+      <div class="agent-card" style="background:#FFC93C;">
+        <div class="agent-icon">📈</div>
+        <h4>Market</h4>
+        <p class="q">“Is now the right time to sell?”</p>
+      </div>
+
+      <div class="agent-card" style="background:#FFD9E8;">
+        <div class="agent-icon">🚚</div>
+        <h4>Logistics</h4>
+        <p class="q">“Can this path be executed efficiently?”</p>
+      </div>
+
+      <div class="agent-card" style="background:#FFFDF7;">
+        <div class="agent-icon">♻️</div>
+        <h4>Sustainability</h4>
+        <p class="q">“How urgently must we prevent waste?”</p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section id="batchIntake" class="shell section">
+
+  <div class="section-head">
+
+    <span class="section-tag">
+      Decision Workspace
+    </span>
+
+    <h2>
+      Add a produce batch.
+    </h2>
+
+    <p>
+      Enter batch information manually or use
+      computer vision to analyze a produce image.
+    </p>
+
+  </div>
+
+  <div class="pagehead">
+    <span class="section-tag">DeciFresh Test</span>
+    <h1>Analyze Produce Batch</h1>
+    <p>Enter batch details and run the DeciFresh decision engine.</p>
+  </div>
+
+  <div class="upload-grid">
+
+      <div class="review-card" id="manualMode" style="margin-bottom:30px;">
+
+        <div style="display:flex; justify-content:space-between; align-items:center; gap:20px;">
+          <div>
+            <span class="section-tag">AI Vision</span>
+            <h4 style="font-size:22px; margin-top:8px;">
+              Scan your produce
+            </h4>
+            <p style="color:var(--muted); margin-top:6px;">
+              Upload a produce image and let DeciFresh estimate its
+              visible freshness and quality.
+            </p>
+          </div>
+        </div>
+
+        <div
+          class="dropzone"
+          id="visionDropzone"
+          style="margin-top:22px;"
+          onclick="document.getElementById('visionImage').click()"
+        >
+
+          <input
+            id="visionImage"
+            type="file"
+            accept="image/*"
+            style="display:none"
+            onchange="scanProduce(event)"
+          >
+
+          <div id="visionUploadContent">
+            <div class="dz-icon">📷</div>
+            <h4>Upload Produce Image</h4>
+            <p>Choose an image or take a photo on your phone</p>
+          </div>
+
+        </div>
+
+        <!-- Loading -->
+        <div id="visionLoading" style="display:none; margin-top:20px;">
+          <div class="thinking-panel">
+            <h4>DeciFresh Vision is inspecting the produce...</h4>
+            <p style="color:var(--muted-inv);">
+              Detecting produce type, visible freshness and quality signals.
+            </p>
+          </div>
+        </div>
+
+        <!-- Vision result -->
+        <div id="visionResult" style="display:none; margin-top:22px;">
+
+          <div class="vision-result-layout">
+
+            <div class="vision-result-image">
+              <img id="visionResultImage" alt="Analyzed produce">
+              <span>ANALYZED IMAGE</span>
+            </div>
+
+            <div class="vision-result-data">
+
+              <div class="review-row">
+                <span>Detected Produce</span>
+                <b id="visionProduce">—</b>
+              </div>
+
+              <div class="review-row">
+                <span>Visual Freshness</span>
+                <b id="visionFreshness">—</b>
+              </div>
+
+              <div class="review-row">
+                <span>Quality Grade</span>
+                <b id="visionGrade">—</b>
+              </div>
+
+              <div class="review-row">
+                <span>Vision Confidence</span>
+                <b id="visionConfidence">—</b>
+              </div>
+
+            </div>
+
+          </div>
+
+          <div style="margin-top:18px;">
+            <span style="font-size:12px; color:var(--muted);">
+              VISIBLE QUALITY SIGNALS
+            </span>
+
+            <div
+              id="visionIssues"
+              style="display:flex; flex-wrap:wrap; gap:8px; margin-top:10px;"
+            ></div>
+          </div>
+
+          <p
+            id="visionSummary"
+            style="margin-top:18px; line-height:1.6; color:var(--muted);"
+          ></p>
+
+          <div style="margin-top:22px;">
+            <button class="btn btn-primary" onclick="scrollToDecisionForm()">
+              Continue to Decision →
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="review-card">
+
+        <h4>Batch Details</h4>
+
+        <div class="field-group">
+
+          <div class="field">
+            <label>Batch ID</label>
+            <input id="batch_id" value="MX-201">
+          </div>
+
+          <div class="field">
+            <label>Crop Type</label>
+            <input id="crop_type" value="Mangoes">
+          </div>
+
+          <div class="field">
+            <label>Weight (kg)</label>
+            <input id="weight_kg" type="number" value="1000">
+          </div>
+
+          <div class="field">
+            <label>Origin</label>
+            <input id="origin" value="Farm A, Azadpur">
+          </div>
+
+          <div class="field">
+            <label>Harvest Date</label>
+            <input id="harvest_date" type="date" value="2026-08-05">
+          </div>
+
+          <div class="field">
+            <label>Current Location</label>
+            <input id="current_location" value="Delhi Warehouse">
+          </div>
+
+          <button
+            id="analyzeBtn"
+            class="btn btn-primary"
+            onclick="runDecision()"
+          >
+            Analyze Batch
+          </button>
+
+          <button class="btn btn-ghost" onclick="resetDecision()">
+            Analyze New Batch
+          </button>
+
+        </div>
+      </div>
+
+      <div class="review-card" id="decisionResultCard">
+        <h4>Decision Result</h4>
+
+        <div id="thinkingState" style="display:none; margin-top:24px;">
+          <div class="thinking-panel">
+            <h4>DeciFresh is evaluating the batch...</h4>
+
+            <div class="think-row">
+              <div class="think-dot active">1</div>
+              <div class="tt">
+                <b>Scoring batch</b>
+                <span>Running deterministic baseline</span>
+              </div>
+            </div>
+
+            <div class="think-row">
+              <div class="think-dot">2</div>
+              <div class="tt">
+                <b>Specialist analysis</b>
+                <span>Quality, market, logistics and sustainability</span>
+              </div>
+            </div>
+
+            <div class="think-row">
+              <div class="think-dot">3</div>
+              <div class="tt">
+                <b>Retrieving historical evidence</b>
+                <span>Searching similar past batches</span>
+              </div>
+            </div>
+
+            <div class="think-row">
+              <div class="think-dot">4</div>
+              <div class="tt">
+                <b>Simulating futures</b>
+                <span>Comparing counterfactual outcomes</span>
+              </div>
+            </div>
+
+            <div class="think-row">
+              <div class="think-dot">5</div>
+              <div class="tt">
+                <b>Validating recommendation</b>
+                <span>Auditing the final decision</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="emptyDecision">
+          <span class="section-tag">Decision Pending</span>
+
+          <h4 style="margin-top:12px;">
+            Ready for full intelligence analysis.
+          </h4>
+
+          <p style="color:var(--muted); margin-top:8px; line-height:1.6;">
+            Confirm the remaining batch details and run DeciFresh to generate
+            the optimal action, future-value comparison and validated recommendation.
+          </p>
+        </div>
+
+        <div id="decisionSummary" style="display:none;">
+
+          <div class="decision-hero" style="margin: 0 0 22px;">
+            <div>
+              <div class="dh-tag">Validated Recommendation</div>
+
+              <h2 id="finalRecommendation">
+                Standard Retail
+              </h2>
+            </div>
+
+            <div class="conf">
+              <b id="aiConfidence">0%</b>
+              <span>AI Confidence</span>
+            </div>
+          </div>
+
+          <div class="review-row">
+            <span>Decision Score</span>
+            <b id="decisionScore">—</b>
+          </div>
+
+          <div class="review-row">
+            <span>Validation Status</span>
+            <b id="validationStatus">—</b>
+          </div>
+
+          <div class="review-row">
+            <span>Engine Agreement</span>
+            <b id="engineAgreement">—</b>
+          </div>
+
+          <div class="review-row">
+            <span>Best Future Value</span>
+            <b id="bestFutureValue">—</b>
+          </div>
+
+          <div class="review-row">
+            <span>Baseline Value</span>
+            <b id="baselineValue">—</b>
+          </div>
+
+          <div class="review-row">
+            <span>Value Preserved</span>
+            <b id="valueSaved">—</b>
+          </div>
+
+        </div>
+
+        <div id="futuresSection" style="display:none; margin-top: 22px;">
+          <h4>Future Value Plan</h4>
+
+          <div class="review-row">
+            <span>Best Recommended Action</span>
+            <b id="bestAction">—</b>
+          </div>
+
+          <div class="review-row">
+            <span>Forecasted Future Value</span>
+            <b id="forecastValue">—</b>
+          </div>
+
+          <div class="review-row">
+            <span>Baseline Future Value</span>
+            <b id="baselineFutureValue">—</b>
+          </div>
+
+          <div class="review-row">
+            <span>Value Saved vs Baseline</span>
+            <b id="valueSavedVsBaseline">—</b>
+          </div>
+        </div>
+
+        <div id="allFuturesSection" style="display:none; margin-top:32px;">
+
+          <div class="section-head">
+            <span class="section-tag">Counterfactual Simulation</span>
+            <h2>Every possible future.</h2>
+            <p>
+              DeciFresh compares alternative actions before committing to one.
+            </p>
+          </div>
+
+          <div class="futures-strip" id="allFuturesContainer"></div>
+
+        </div>
+
+        <div id="historySection" style="display:none; margin-top:40px;">
+
+          <div class="section-head">
+            <span class="section-tag">Historical RAG</span>
+            <h2>Similar batches. Real outcomes.</h2>
+            <p>
+              DeciFresh retrieves comparable historical cases and uses their outcomes
+              as supporting evidence for the current decision.
+            </p>
+          </div>
+
+          <div class="batch-grid" id="historyContainer"></div>
+
+        </div>
+
+        <div id="validationSection" style="display:none; margin-top:40px;">
+
+          <div class="section-head">
+            <span class="section-tag">Validation Layer</span>
+            <h2>Every decision is audited.</h2>
+            <p>
+              The Validator independently checks whether the AI recommendation is
+              supported by the deterministic engine, specialist reports, historical
+              evidence and counterfactual analysis.
+            </p>
+          </div>
+
+          <div class="decision-hero">
+
+            <div>
+              <div class="dh-tag">Validation Status</div>
+
+              <h2 id="validationDecision">
+                APPROVED
+              </h2>
+
+              <p id="validationReasoning"
+                 style="margin-top:16px; color:var(--muted-inv); line-height:1.6;">
+              </p>
+            </div>
+
+            <div class="conf">
+              <b id="validationConfidence">0%</b>
+              <span>Validation Confidence</span>
+            </div>
+
+          </div>
+
+          <div class="review-card">
+
+            <div class="review-row">
+              <span>Final Recommendation</span>
+              <b id="validatedRecommendation">—</b>
+            </div>
+
+            <div class="review-row">
+              <span>Engine Agreement</span>
+              <b id="validatedAgreement">—</b>
+            </div>
+
+          </div>
+
+        </div>
+
+        <div id="passportSection" style="display:none; margin-top:40px;">
+
+          <div class="section-head">
+            <span class="section-tag">Digital Produce Passport</span>
+            <h2>One batch. One decision identity.</h2>
+            <p>
+              DeciFresh packages traceability, decision intelligence,
+              future-value analysis and validation into a single batch record.
+            </p>
+          </div>
+
+          <div class="review-card">
+
+            <div class="review-row">
+              <span>Batch ID</span>
+              <b id="passportBatchId">—</b>
+            </div>
+
+            <div class="review-row">
+              <span>Produce</span>
+              <b id="passportProduce">—</b>
+            </div>
+
+            <div class="review-row">
+              <span>Quantity</span>
+              <b id="passportQuantity">—</b>
+            </div>
+
+            <div class="review-row">
+              <span>Decision Score</span>
+              <b id="passportScore">—</b>
+            </div>
+
+            <div class="review-row">
+              <span>Final Recommendation</span>
+              <b id="passportDecision">—</b>
+            </div>
+
+            <div class="review-row">
+              <span>AI Confidence</span>
+              <b id="passportConfidence">—</b>
+            </div>
+
+            <div class="review-row">
+              <span>Validation</span>
+              <b id="passportValidation">—</b>
+            </div>
+
+            <div class="review-row">
+              <span>Best Future Value</span>
+              <b id="passportFutureValue">—</b>
+            </div>
+
+            <div class="review-row">
+              <span>Value Saved vs Baseline</span>
+              <b id="passportValueSaved">—</b>
+            </div>
+
+            <div style="margin-top:24px;">
+              <button class="btn btn-primary" onclick="generatePassport()">
+                Generate / Refresh Passport
+              </button>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+  <script>
+    function scrollToSection(id) {
+      const element = document.getElementById(id);
+
+      if (element) {
+        element.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+      }
+    }
+
+    function scrollToDecisionForm() {
+      const element = document.getElementById("manualMode");
+
+      if (element) {
+        element.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+      }
+    }
+
+    async function runDecision() {
+
+      const analyzeBtn = document.getElementById("analyzeBtn");
+
+      analyzeBtn.disabled = true;
+      analyzeBtn.textContent = "Analyzing...";
+
+      const payload = {
+        batch_id: document.getElementById("batch_id").value,
+        crop_type: document.getElementById("crop_type").value,
+        weight_kg: Number(document.getElementById("weight_kg").value),
+        origin: document.getElementById("origin").value,
+        harvest_date: document.getElementById("harvest_date").value,
+        current_location: document.getElementById("current_location").value
+      };
+
+      document.getElementById("thinkingState").style.display = "block";
+      document.getElementById("emptyDecision").innerHTML =
+        "<p style='color:var(--muted);font-size:14px;'>DeciFresh is analyzing the batch...</p>";
+
+      document.getElementById("emptyDecision").style.display = "block";
+      document.getElementById("decisionSummary").style.display = "none";
+
+      try {
+
+        const response = await fetch(
+          "http://127.0.0.1:8000/api/decision",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify(payload)
+          }
+        );
+
+        const data = await response.json();
+
+        lastBatchPayload = payload;
+        lastDecisionData = data;
+
+        renderDecision(data);
+        renderFutures(data);
+        renderAllFutures(data);
+        renderHistory(data);
+        renderValidation(data);
+        renderPassportPreview(data, payload);
+
+        document.getElementById("thinkingState").style.display = "none";
+        document.getElementById("decisionResultCard").scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+
+      } catch (error) {
+
+        document.getElementById("thinkingState").style.display = "none";
+      document.getElementById("emptyDecision").innerHTML =
+          "<p style='color:var(--clay);font-size:14px;'>Error: " +
+          error.message +
+          "</p>";
+      } finally {
+        analyzeBtn.disabled = false;
+        analyzeBtn.textContent = "Analyze Batch";
+      }
+    }
+
+    function resetDecision() {
+      document.getElementById("decisionSummary").style.display = "none";
+      document.getElementById("futuresSection").style.display = "none";
+      document.getElementById("allFuturesSection").style.display = "none";
+      document.getElementById("historySection").style.display = "none";
+      document.getElementById("validationSection").style.display = "none";
+      document.getElementById("passportSection").style.display = "none";
+      document.getElementById("thinkingState").style.display = "none";
+
+      document.getElementById("emptyDecision").style.display = "block";
+      document.getElementById("emptyDecision").innerHTML =
+        "<p style='color:var(--muted);font-size:14px;'>No decision yet. Analyze a produce batch to generate intelligence.</p>";
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    }
+
+    function renderDecision(data) {
+
+      document.getElementById("emptyDecision").style.display = "none";
+      document.getElementById("decisionSummary").style.display = "block";
+
+      const ai = data.ai_decision;
+      const engine = data.decision_engine;
+      const cf = data.counterfactual_analysis;
+
+      document.getElementById("finalRecommendation").textContent =
+        ai.final_recommendation || "Unknown";
+
+      document.getElementById("aiConfidence").textContent =
+        (ai.confidence ?? 0) + "%";
+
+      document.getElementById("decisionScore").textContent =
+        engine.score ?? "—";
+
+      document.getElementById("validationStatus").textContent =
+        ai.validation_status || "—";
+
+      document.getElementById("engineAgreement").textContent =
+        ai.engine_agreement || "—";
+
+      document.getElementById("bestFutureValue").textContent =
+        cf.best_future_value ?? "—";
+
+      document.getElementById("baselineValue").textContent =
+        cf.baseline_future_value ?? "—";
+
+      document.getElementById("valueSaved").textContent =
+        "+" + (cf.value_saved_vs_baseline ?? 0);
+    }
+
+    function renderFutures(data) {
+      const cf = data.counterfactual_analysis;
+
+      document.getElementById("futuresSection").style.display = "block";
+      document.getElementById("bestAction").textContent =
+        cf.best_action || "—";
+      document.getElementById("forecastValue").textContent =
+        cf.best_future_value ?? "—";
+      document.getElementById("baselineFutureValue").textContent =
+        cf.baseline_future_value ?? "—";
+      document.getElementById("valueSavedVsBaseline").textContent =
+        "+" + (cf.value_saved_vs_baseline ?? 0);
+    }
+
+    function renderAllFutures(data) {
+
+      const cf = data.counterfactual_analysis;
+
+      if (!cf || !cf.scenarios) return;
+
+      const section = document.getElementById("allFuturesSection");
+      const container = document.getElementById("allFuturesContainer");
+
+      section.style.display = "block";
+      container.innerHTML = "";
+
+      cf.scenarios.forEach((scenario) => {
+
+        const winner = scenario.action === cf.best_action;
+
+        const card = document.createElement("div");
+
+        card.className =
+          "future-card" + (winner ? " winner" : "");
+
+        const gain = Number(scenario.gain_vs_baseline);
+
+        card.innerHTML = `
+          <span class="fc-badge">BEST PATH</span>
+
+          <h5>${scenario.action}</h5>
+
+          <div class="fc-row">
+            <span>Future Value</span>
+            <b>${Number(scenario.future_value).toFixed(2)}</b>
+          </div>
+
+          <div class="fc-row">
+            <span>vs Baseline</span>
+            <b>
+              ${gain >= 0 ? "+" : ""}${gain.toFixed(2)}
+            </b>
+          </div>
+        `;
+
+        container.appendChild(card);
+      });
+    }
+
+    function renderHistory(data) {
+
+      const matches = data.historical_matches;
+
+      if (!matches || !matches.length) return;
+
+      const section = document.getElementById("historySection");
+      const container = document.getElementById("historyContainer");
+
+      section.style.display = "block";
+      container.innerHTML = "";
+
+      matches.forEach((item) => {
+
+        const card = document.createElement("div");
+        card.className = "batch-card";
+
+        card.innerHTML = `
+          <div class="bc-top">
+
+            <div class="bc-crop">
+              <div class="bc-emoji">📦</div>
+
+              <div>
+                <b>${item.produce_type}</b>
+                <span>${item.batch_id}</span>
+              </div>
+            </div>
+
+            <span class="bc-status decided">
+              HISTORICAL
+            </span>
+
+          </div>
+
+          <div class="review-row">
+            <span>Freshness</span>
+            <b>${item.freshness}</b>
+          </div>
+
+          <div class="review-row">
+            <span>Demand</span>
+            <b>${item.demand}</b>
+          </div>
+
+          <div class="review-row">
+            <span>Logistics</span>
+            <b>${item.logistics}</b>
+          </div>
+
+          <div class="review-row">
+            <span>Decision</span>
+            <b>${item.decision}</b>
+          </div>
+
+          <div class="review-row">
+            <span>Outcome</span>
+            <b>${item.outcome}</b>
+          </div>
+
+          <div class="review-row">
+            <span>Waste</span>
+            <b>${item.waste_percent}%</b>
+          </div>
+
+        `;
+
+        container.appendChild(card);
+      });
+    }
+
+    let lastBatchPayload = null;
+    let lastDecisionData = null;
+
+    function renderValidation(data) {
+
+      const ai = data.ai_decision;
+
+      if (!ai) return;
+
+      const section =
+        document.getElementById("validationSection");
+
+      section.style.display = "block";
+
+      document.getElementById("validationDecision").textContent =
+        ai.validation_status || "UNKNOWN";
+
+      document.getElementById("validationConfidence").textContent =
+        `${ai.confidence ?? 0}%`;
+
+      document.getElementById("validatedRecommendation").textContent =
+        ai.final_recommendation || "—";
+
+      document.getElementById("validatedAgreement").textContent =
+        ai.engine_agreement || "—";
+
+      document.getElementById("validationReasoning").textContent =
+        ai.reasoning || "No reasoning available.";
+    }
+
+    function renderVisionResult(data) {
+
+      const result =
+        document.getElementById("visionResult");
+
+      result.style.display = "block";
+
+      document.getElementById("visionProduce").textContent =
+        data.produce_type || "Unknown";
+
+      document.getElementById("visionFreshness").textContent =
+        `${data.freshness_score ?? "—"}/100`;
+
+      document.getElementById("visionGrade").textContent =
+        data.quality_grade || "—";
+
+      let confidence = Number(data.confidence ?? 0);
+
+      if (confidence <= 1) {
+        confidence *= 100;
+      }
+
+      document.getElementById("visionConfidence").textContent =
+        `${Math.round(confidence)}%`;
+
+      document.getElementById("visionSummary").textContent =
+        data.visual_summary || "";
+
+      const issues =
+        document.getElementById("visionIssues");
+
+      issues.innerHTML = "";
+
+      const visibleIssues =
+        Array.isArray(data.visible_issues)
+          ? data.visible_issues
+          : [];
+
+      if (visibleIssues.length === 0) {
+
+        issues.innerHTML = `
+          <span class="bc-status decided">
+            No major visible issues
+          </span>
+        `;
+
+      } else {
+
+        visibleIssues.forEach(issue => {
+
+          const tag = document.createElement("span");
+
+          tag.className = "bc-status risk";
+          tag.textContent = issue;
+
+          issues.appendChild(tag);
+        });
+      }
+
+      autofillFromVision(data);
+    }
+
+    function autofillFromVision(data) {
+
+      const cropInput =
+        document.getElementById("crop_type");
+
+      if (cropInput && data.produce_type) {
+        cropInput.value = data.produce_type;
+      }
+    }
+
+    let visionAnalysis = null;
+
+    async function scanProduce(event) {
+
+      const file = event.target.files[0];
+
+      if (!file) return;
+
+      const loading = document.getElementById("visionLoading");
+      const result = document.getElementById("visionResult");
+      const dropzone = document.getElementById("visionDropzone");
+
+      result.style.display = "none";
+      loading.style.display = "block";
+
+      const imageURL = URL.createObjectURL(file);
+
+      const resultImage =
+        document.getElementById("visionResultImage");
+
+      if (resultImage) {
+        resultImage.src = imageURL;
+      }
+
+      dropzone.innerHTML = `
+        <img
+          src="${imageURL}"
+          alt="Uploaded produce"
+          style="
+            width:100%;
+            height:260px;
+            object-fit:cover;
+            border-radius:20px;
+          "
+        >
+      `;
+
+      const formData = new FormData();
+      formData.append("image", file);
+
+      try {
+
+        const response = await fetch(
+          "http://127.0.0.1:8000/api/vision/analyze",
+          {
+            method: "POST",
+            body: formData
+          }
+        );
+
+        if (!response.ok) {
+          const errorData = await response.json();
+          throw new Error(
+            errorData.detail || "Vision analysis failed"
+          );
+        }
+
+        const data = await response.json();
+
+        visionAnalysis = data;
+
+        renderVisionResult(data);
+
+      } catch (error) {
+
+        console.error(error);
+
+        alert(
+          "Produce scan failed: " + error.message
+        );
+
+      } finally {
+
+        loading.style.display = "none";
+      }
+    }
+
+    function renderPassportPreview(data, payload) {
+
+      lastBatchPayload = payload;
+
+      const ai = data.ai_decision || {};
+      const engine = data.decision_engine || {};
+      const cf = data.counterfactual_analysis || {};
+
+      document.getElementById("passportSection").style.display = "block";
+
+      document.getElementById("passportBatchId").textContent =
+        data.batch_id || "—";
+
+      document.getElementById("passportProduce").textContent =
+        data.produce_type || "—";
+
+      document.getElementById("passportQuantity").textContent =
+        data.quantity_kg != null ? `${data.quantity_kg} kg` : "—";
+
+      document.getElementById("passportScore").textContent =
+        engine.score ?? "—";
+
+      document.getElementById("passportDecision").textContent =
+        ai.final_recommendation || "—";
+
+      document.getElementById("passportConfidence").textContent =
+        `${ai.confidence ?? 0}%`;
+
+      document.getElementById("passportValidation").textContent =
+        ai.validation_status || "—";
+
+      document.getElementById("passportFutureValue").textContent =
+        cf.best_future_value ?? "—";
+
+      const saved = Number(cf.value_saved_vs_baseline);
+
+      document.getElementById("passportValueSaved").textContent =
+        Number.isFinite(saved)
+          ? `${saved >= 0 ? "+" : ""}${saved.toFixed(2)}`
+          : "—";
+    }
+
+    function generatePassport() {
+
+      if (!lastDecisionData) {
+        alert("Analyze a batch first.");
+        return;
+      }
+
+      renderPassportPreview(
+        lastDecisionData,
+        lastBatchPayload
+      );
+
+      document.getElementById("passportSection").scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+
+      alert("Digital Produce Passport generated successfully.");
+    }
+  </script>
+
+</body>
 </html>
