@@ -1,14 +1,17 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+
 from Backend.api.routes import router as api_router
+
 
 app = FastAPI(
     title="DeciFresh Backend API",
     description="Decision Layer Engine for Global Fresh Produce Economy",
-    version="1.0.0"
+    version="1.0.0",
 )
 
-# Enable CORS for Frontend development
+
+# Enable CORS for frontend development
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -17,12 +20,25 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+
+# Register backend API routes
 app.include_router(api_router)
+
 
 @app.get("/")
 def health_check():
-    return {"status": "online", "system": "DeciFresh Decision Engine v1.0"}
+    return {
+        "status": "online",
+        "system": "DeciFresh Decision Engine v1.0",
+    }
+
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
+
+    uvicorn.run(
+        "main:app",
+        host="0.0.0.0",
+        port=8000,
+        reload=True,
+    )

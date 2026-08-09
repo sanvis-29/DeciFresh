@@ -2,7 +2,7 @@ import os
 from dotenv import load_dotenv
 from crewai import LLM
 
-load_dotenv()
+load_dotenv("Backend/.env")
 
 MODEL_NAME = os.getenv(
     "MODEL_NAME",

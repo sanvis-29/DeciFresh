@@ -1,5 +1,5 @@
 from crewai import Agent
-from ai_engine.config import llm
+from Backend.ai_engine.config import llm
 
 chief_worker = Agent(
     role="Chief Produce Decision Officer",
