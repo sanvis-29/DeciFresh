@@ -162,6 +162,285 @@ footer{border-top:1px solid var(--line);margin-top:120px;padding:48px 0}
 .hero-stat b{display:block;font-family:'Space Grotesk',sans-serif;font-size:28px;font-weight:600;background:linear-gradient(135deg,var(--mango-deep),var(--clay));-webkit-background-clip:text;background-clip:text;color:transparent}
 .hero-stat span{font-size:12.5px;color:var(--muted)}
 
+.live-intel-strip{
+  margin-top:24px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  flex-wrap:wrap;
+  padding:14px 18px;
+  border:2px solid var(--ink);
+  border-radius:16px;
+  background:var(--card);
+  box-shadow:4px 4px 0 var(--ink);
+}
+
+.live-intel-strip .mono{
+  font-size:11px;
+  letter-spacing:.06em;
+  font-weight:700;
+}
+
+.live-intel-strip b{
+  font-size:13.5px;
+  color:var(--ink-soft);
+}
+
+.live-dot{
+  width:9px;
+  height:9px;
+  border-radius:50%;
+  background:var(--leaf);
+  box-shadow:0 0 0 5px rgba(47,168,79,.18);
+  animation:dotbreathe 2s infinite;
+}
+
+.pricing-section{
+  position:relative;
+}
+
+.pricing-head{
+  max-width:720px;
+}
+
+.pricing-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+  align-items:stretch;
+  margin-top:36px;
+}
+
+.pricing-card{
+  position:relative;
+  background:var(--card);
+  border:2.5px solid var(--ink);
+  border-radius:28px;
+  padding:30px;
+  box-shadow:6px 6px 0 var(--ink);
+  transition:
+    transform .28s var(--ease-spring),
+    box-shadow .28s var(--ease);
+  overflow:hidden;
+}
+
+.pricing-card::before{
+  content:'';
+  position:absolute;
+  width:180px;
+  height:180px;
+  border-radius:50%;
+  top:-80px;
+  right:-70px;
+  background:rgba(255,201,60,.22);
+  pointer-events:none;
+}
+
+.pricing-card:hover{
+  transform:translateY(-7px);
+  box-shadow:9px 12px 0 var(--ink);
+}
+
+.pricing-card.featured{
+  background:linear-gradient(
+    155deg,
+    var(--ink) 0%,
+    #20362a 62%,
+    #2a1420 130%
+  );
+  color:var(--paper-warm);
+  transform:translateY(-10px);
+  box-shadow:8px 10px 0 var(--mango);
+}
+
+.pricing-card.featured:hover{
+  transform:translateY(-16px);
+  box-shadow:11px 15px 0 var(--mango);
+}
+
+.pricing-card.featured::before{
+  background:rgba(255,122,26,.18);
+}
+
+.pricing-topline{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:22px;
+}
+
+.pricing-label{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.08em;
+}
+
+.pricing-chip{
+  font-size:10px;
+  font-weight:700;
+  padding:5px 10px;
+  border-radius:100px;
+  background:var(--leaf-pale);
+  color:var(--leaf-deep);
+  border:1.5px solid var(--ink);
+}
+
+.pricing-chip.dark{
+  background:var(--turmeric);
+  color:var(--ink);
+}
+
+.pricing-card h3{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:38px;
+  line-height:1;
+  margin-bottom:8px;
+  letter-spacing:-.03em;
+}
+
+.pricing-card h3 span{
+  font-size:16px;
+  font-weight:600;
+  opacity:.65;
+}
+
+.pricing-period{
+  display:block;
+  font-size:12px;
+  color:var(--muted);
+  margin-bottom:18px;
+}
+
+.featured .pricing-period{
+  color:var(--muted-inv);
+}
+
+.pricing-desc{
+  color:var(--muted);
+  font-size:13.5px;
+  line-height:1.6;
+  min-height:44px;
+}
+
+.featured .pricing-desc{
+  color:var(--muted-inv);
+}
+
+.pricing-divider{
+  height:1px;
+  background:var(--line);
+  margin:24px 0;
+}
+
+.featured .pricing-divider{
+  background:rgba(255,255,255,.12);
+}
+
+.pricing-card ul{
+  list-style:none;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  margin-bottom:30px;
+}
+
+.pricing-card li{
+  font-size:13.5px;
+  padding-left:24px;
+  position:relative;
+  line-height:1.45;
+}
+
+.pricing-card li::before{
+  content:'✓';
+  position:absolute;
+  left:0;
+  width:16px;
+  height:16px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:10px;
+  font-weight:800;
+  background:var(--leaf-pale);
+  color:var(--leaf-deep);
+}
+
+.featured li::before{
+  background:var(--mango);
+  color:var(--ink);
+}
+
+.pricing-btn{
+  width:100%;
+  padding:13px 16px;
+  border-radius:100px;
+  font-weight:700;
+  font-size:14px;
+  border:2px solid var(--ink);
+  transition:
+    transform .18s var(--ease),
+    box-shadow .18s var(--ease);
+}
+
+.pricing-btn-primary{
+  background:var(--mango);
+  color:var(--ink);
+  box-shadow:4px 4px 0 var(--paper-warm);
+}
+
+.pricing-btn-primary:hover{
+  transform:translate(-2px,-2px);
+  box-shadow:6px 6px 0 var(--paper-warm);
+}
+
+.pricing-btn-ghost{
+  background:var(--card);
+  color:var(--ink);
+  box-shadow:4px 4px 0 var(--ink);
+}
+
+.pricing-btn-ghost:hover{
+  background:var(--turmeric);
+  transform:translate(-2px,-2px);
+  box-shadow:6px 6px 0 var(--ink);
+}
+
+.recommended-badge{
+  position:absolute;
+  top:18px;
+  right:-36px;
+  width:150px;
+  text-align:center;
+  transform:rotate(35deg);
+  background:var(--mango);
+  color:var(--ink);
+  font-family:'IBM Plex Mono',monospace;
+  font-size:9px;
+  font-weight:800;
+  letter-spacing:.06em;
+  padding:6px 0;
+  border-top:1.5px solid var(--ink);
+  border-bottom:1.5px solid var(--ink);
+}
+
+@media(max-width:900px){
+  .pricing-grid{
+    grid-template-columns:1fr;
+  }
+
+  .pricing-card.featured{
+    transform:none;
+  }
+
+  .pricing-card.featured:hover{
+    transform:translateY(-7px);
+  }
+}
+
 /* ---------- orchestrator visual (signature element) ---------- */
 .orch-blob{position:absolute;width:120%;height:120%;top:-10%;right:-18%;border-radius:50%;background:var(--turmeric);z-index:0}
 .orch-wrap{position:relative;z-index:1;aspect-ratio:1/1;background:linear-gradient(155deg,#182F1A 0%,var(--ink) 55%,#2A1420 100%);border-radius:32px;overflow:hidden;border:2.5px solid var(--ink);box-shadow:8px 8px 0 var(--clay)}
@@ -416,6 +695,7 @@ svg.orch-svg{width:100%;height:100%;display:block}
     <div class="navlinks">
       <button onclick="scrollToSection('home')">Home</button>
       <button onclick="scrollToSection('howItWorks')">How It Works</button>
+      <button onclick="scrollToSection('pricing')">Pricing</button>
       <button onclick="scrollToSection('batchIntake')">Analyze</button>
     </div>
 
@@ -488,6 +768,14 @@ svg.orch-svg{width:100%;height:100%;display:block}
           <span>Validated Action</span>
         </div>
 
+      </div>
+
+      <div class="live-intel-strip">
+        <span class="live-dot"></span>
+        <span class="mono">LIVE INTELLIGENCE</span>
+        <b id="liveIntelMessage">
+          Simulating possible futures...
+        </b>
       </div>
 
     </div>
@@ -1140,6 +1428,163 @@ svg.orch-svg{width:100%;height:100%;display:block}
 
     </div>
   </section>
+
+  <section id="pricing" class="shell section pricing-section">
+
+    <div class="section-head pricing-head">
+      <span class="section-tag">Pricing</span>
+
+      <h2>
+        Start small. Scale with every decision.
+      </h2>
+
+      <p>
+        Choose a plan based on operational scale — from pilot testing
+        to multi-location enterprise deployment.
+      </p>
+    </div>
+
+    <div class="pricing-grid">
+
+      <!-- PILOT -->
+      <div class="pricing-card">
+
+        <div class="pricing-topline">
+          <span class="pricing-label">PILOT</span>
+          <span class="pricing-chip">For testing</span>
+        </div>
+
+        <h3>₹10K–₹25K</h3>
+        <span class="pricing-period">for 1–2 months</span>
+
+        <p class="pricing-desc">
+          Validate DeciFresh on a real workflow before scaling.
+        </p>
+
+        <div class="pricing-divider"></div>
+
+        <ul>
+          <li>Single-location deployment</li>
+          <li>Decision dashboard</li>
+          <li>Counterfactual analysis</li>
+          <li>Historical intelligence</li>
+          <li>Digital produce passport</li>
+        </ul>
+
+        <button class="pricing-btn pricing-btn-ghost">
+          Start Pilot →
+        </button>
+
+      </div>
+
+      <!-- BUSINESS -->
+      <div class="pricing-card featured">
+
+        <div class="recommended-badge">
+          MOST POPULAR
+        </div>
+
+        <div class="pricing-topline">
+          <span class="pricing-label">BUSINESS</span>
+          <span class="pricing-chip dark">Best value</span>
+        </div>
+
+        <h3>₹9,999<span>/mo</span></h3>
+
+        <p class="pricing-desc">
+          Built for warehouses, distributors and produce processors.
+        </p>
+
+        <div class="pricing-divider"></div>
+
+        <ul>
+          <li>Recurring batch intelligence</li>
+          <li>AI Vision analysis</li>
+          <li>Historical RAG</li>
+          <li>Decision validation</li>
+          <li>Digital Produce Passports</li>
+          <li>Priority support</li>
+        </ul>
+
+        <button class="pricing-btn pricing-btn-primary">
+          Choose Business →
+        </button>
+
+      </div>
+
+      <!-- ENTERPRISE -->
+      <div class="pricing-card">
+
+        <div class="pricing-topline">
+          <span class="pricing-label">ENTERPRISE</span>
+          <span class="pricing-chip">At scale</span>
+        </div>
+
+        <h3>₹25K+<span>/mo</span></h3>
+
+        <p class="pricing-desc">
+          For large produce networks and multi-location supply chains.
+        </p>
+
+        <div class="pricing-divider"></div>
+
+        <ul>
+          <li>Multi-location operations</li>
+          <li>ERP / WMS integration</li>
+          <li>Volume-based API access</li>
+          <li>Custom decision policies</li>
+          <li>Advanced analytics</li>
+          <li>Enterprise onboarding</li>
+        </ul>
+
+        <button class="pricing-btn pricing-btn-ghost">
+          Contact Sales →
+        </button>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="band band-ink">
+    <div class="shell section" style="text-align:center;">
+
+      <span class="section-tag">
+        Ready to Decide?
+      </span>
+
+      <h2 style="
+        color:var(--paper-warm);
+        font-family:'Space Grotesk',sans-serif;
+        font-size:42px;
+        margin:14px auto;
+        max-width:760px;
+      ">
+        Every batch has multiple futures.
+        DeciFresh helps choose the right one.
+      </h2>
+
+      <p style="
+        color:var(--muted-inv);
+        max-width:620px;
+        margin:0 auto 26px;
+        line-height:1.6;
+      ">
+        Scan a produce sample, add batch context,
+        simulate possible futures and generate a validated decision.
+      </p>
+
+      <button
+        class="btn btn-primary"
+        onclick="scrollToSection('batchIntake')"
+      >
+        Analyze a Batch →
+      </button>
+
+    </div>
+  </section>
+
 </main>
 
   <script>
@@ -1646,6 +2091,31 @@ svg.orch-svg{width:100%;height:100%;display:block}
 
       alert("Digital Produce Passport generated successfully.");
     }
+
+    const liveIntelMessages = [
+      "8 possible futures currently modeled per batch.",
+      "Counterfactual engine compares action vs baseline in real time.",
+      "Historical RAG retrieves similar produce outcomes before final routing.",
+      "Validator audits every Chief Agent recommendation.",
+      "Digital Produce Passport preserves the full decision trail."
+    ];
+
+    let intelIndex = 0;
+
+    setInterval(() => {
+      intelIndex = (intelIndex + 1) % liveIntelMessages.length;
+
+      const el = document.getElementById("liveIntelMessage");
+
+      if (el) {
+        el.style.opacity = 0;
+
+        setTimeout(() => {
+          el.textContent = liveIntelMessages[intelIndex];
+          el.style.opacity = 1;
+        }, 250);
+      }
+    }, 2800);
   </script>
 
 </body>
