@@ -1,16 +1,18 @@
 import os
 from dotenv import load_dotenv
 from crewai import LLM
+import crewai.llms.cache as _crewai_cache
+_crewai_cache.mark_cache_breakpoint = lambda msg: msg
 
 load_dotenv("Backend/.env")
 
 MODEL_NAME = os.getenv(
     "MODEL_NAME",
-    "groq/llama-3.3-70b-versatile"
+    "groq/openai/gpt-oss-120b"
 )
 
 llm = LLM(
-    model="groq/llama-3.3-70b-versatile",
+    model="groq/openai/gpt-oss-120b",
     api_key=os.getenv("GROQ_API_KEY"),
 )
 

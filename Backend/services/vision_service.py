@@ -109,36 +109,15 @@ Return ONLY valid JSON in exactly this structure:
             }
         ],
         temperature=0.1,
+        response_format={
+            "type": "json_object"
+        },
     )
 
-    raw = response.choices[0].message.content.strip()
+    raw = response.choices[0].message.content
 
-    # Remove markdown fences if the model adds them
-    if raw.startswith("```json"):
-        raw = raw[7:]
+    result = json.loads(raw)
 
-    if raw.startswith("```"):
-        raw = raw[3:]
-
-    if raw.endswith("```"):
-        raw = raw[:-3]
-
-    raw = raw.strip()
-
-    # Extract the JSON object if extra text appears
-    start = raw.find("{")
-    end = raw.rfind("}")
-
-    if start == -1 or end == -1:
-        raise ValueError(
-            f"Vision model did not return valid JSON: {raw}"
-        )
-
-    raw_json = raw[start:end + 1]
-
-    result = json.loads(raw_json)
-
-    # Normalize confidence to 0–100
     confidence = result.get("confidence", 0)
 
     if isinstance(confidence, (int, float)) and 0 <= confidence <= 1:

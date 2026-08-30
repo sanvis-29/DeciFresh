@@ -1,18 +1,20 @@
-crewai
+crewai==1.15.18
 crewai-tools
 
-fastapi
-uvicorn
+fastapi==0.141.1
+uvicorn==0.52.4
 
-python-dotenv
+python-dotenv==1.2.3
 
-pydantic
+pydantic==2.12.5
 
 requests
-
 pillow
 
 langchain
 langchain-openai
 
 openai
+
+litellm==1.98.0
+groq==1.7.0
